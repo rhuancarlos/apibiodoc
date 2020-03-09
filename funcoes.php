@@ -6,7 +6,7 @@ defined('API_BIO_FOOTER')  OR define('API_BIO_FOOTER', "Biogeneses - Documentaç
 defined('API_BIO_HEADER')  OR define('API_BIO_HEADER', "API BIOGENESES".API_BIO_VERSAO);
 
 defined('ROTA_PROTOCOLO')  OR define('ROTA_PROTOCOLO', "https://");
-defined('ROTA_DOMINIO')  OR define('ROTA_DOMINIO', "tarcisiosousa.inforgeneses.inf.br/api-biogeneses/");
+defined('ROTA_DOMINIO')  OR define('ROTA_DOMINIO', "apis.inforgeneses.com.br/api_integracao/");
 defined('ROTA_FUNCAO_AUTENTICACAO')  OR define('ROTA_FUNCAO_AUTENTICACAO', "authentication/");
 defined('ROTA_FUNCAO_MARCACAO_DATA')  OR define('ROTA_FUNCAO_MARCACAO_DATA', "marcacoes/data/");
 defined('ROTA_FUNCAO_MARCACAO_PERIODO')  OR define('ROTA_FUNCAO_MARCACAO_PERIODO', "marcacoes/periodo/");
@@ -17,7 +17,7 @@ defined('ROTA_FUNCAO_GET_PACIENTES')  OR define('ROTA_FUNCAO_GET_PACIENTES', "pa
 defined('ROTA_FUNCAO_POST_PACIENTES_FILTRO')  OR define('ROTA_FUNCAO_POST_PACIENTES_FILTRO', "paciente/filtros");
 defined('ROTA_FUNCAO_POST_PACIENTES_CADASTRO')  OR define('ROTA_FUNCAO_POST_PACIENTES_CADASTRO', "pacientes/efetivar_cadastro");
 defined('ROTA_FUNCAO_GET_CONVENIOS')  OR define('ROTA_FUNCAO_GET_CONVENIOS', "tipo_convenio");
-defined('ROTA_FUNCAO_GET_PROFISSIONAIS')  OR define('ROTA_FUNCAO_GET_PROFISSIONAIS', "profissional");
+defined('ROTA_FUNCAO_GET_PROFISSIONAIS')  OR define('ROTA_FUNCAO_GET_PROFISSIONAIS', "profissionais");
 defined('ROTA_FUNCAO_POST_PROFISSIONAIS')  OR define('ROTA_FUNCAO_POST_PROFISSIONAIS', "profissionais/profissionais_com_horarios");
 defined('ROTA_FUNCAO_POST_PROCEDIMENTOS')  OR define('ROTA_FUNCAO_POST_PROCEDIMENTOS', "procedimento/filtros");
 defined('ROTA_FUNCAO_POST_AGENDAMENTOS_CADASTRO')  OR define('ROTA_FUNCAO_POST_AGENDAMENTOS_CADASTRO', "marcacoes/efetivar_cadastro");
