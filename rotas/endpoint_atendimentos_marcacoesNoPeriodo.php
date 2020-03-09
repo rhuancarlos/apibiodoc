@@ -42,7 +42,6 @@
 <p>
 <span class="badge badge-dark">Conforme descrito na tabela acima</span>
 </p>
-</div>
 
 A requisição ficará da seguinte forma:
 <div class="alert alert-info" role="alert">

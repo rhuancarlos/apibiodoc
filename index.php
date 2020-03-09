@@ -15,6 +15,12 @@
         -ms-user-select: none;
         user-select: none;
       }
+      .card:first-child{
+        margin-top: 30px;
+      }
+      .card{
+        margin-bottom: 10px;
+      }
 
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
