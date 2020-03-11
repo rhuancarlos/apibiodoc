@@ -137,9 +137,26 @@
       </h2>
     </div>
 
-    <div id="collapse9" class="collapse show" aria-labelledby="heading9" data-parent="#accordionExample">
+    <div id="collapse9" class="collapse" aria-labelledby="heading9" data-parent="#accordionExample">
       <div class="card-body">
         <?php include_once('rotas/secao-agendamentos.php');?>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="card">
+    <div class="card-header" id="heading10">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+          <strong>10 - Laudos</strong>
+        </button>
+      </h2>
+    </div>
+
+    <div id="heading10" class="collapse show" aria-labelledby="heading9" data-parent="#accordionExample">
+      <div class="card-body">
+        <?php include_once('rotas/secao-laudos.php');?>
       </div>
     </div>
   </div>

@@ -2,10 +2,11 @@
 Esta requisição deverá ser feita na seguinte rota</i></small></p>
 <h5><i><span class="badge badge-warning">GET</span></i></h5>
 <div class="alert alert-info" role="alert">
-  <?= ROTA_PROTOCOLO.ROTA_DOMINIO.'<strong><span class="badge badge-dark">'.ROTA_FUNCAO_GET_PACIENTES.'</span></strong>'; ?>
-</div>
-
-<p>Estrutura da requisição:</p>
+    <strong>PT-BR: </strong>
+    <?= ROTA_PROTOCOLO.ROTA_DOMINIO.'<strong><span class="badge badge-dark">'.ROTA_FUNCAO_GET_PACIENTES.'</span></strong>'; ?><br>
+    <strong>EN: </strong>
+    <?= ROTA_PROTOCOLO.ROTA_DOMINIO.'<strong><span class="badge badge-dark">'.ROTA_FUNCAO_GET_PATIENT.'</span></strong>'; ?>
+</div>TIENT<p>Estrutura da requisição:</p>
 <li>Authentication: <small><code>Basic Auth</code></small></li>
 <p> 
 - Usuario : <code><span class="badge badge-dark">chave</span> recebida no response de autenticação</code><br>
@@ -16,12 +17,13 @@ Esta requisição deverá ser feita na seguinte rota</i></small></p>
 </p>
 
 O resultado da requisição será conforme abaixo:
+<strong>PT-BR</strong>
 <div class="alert alert-success" role="alert">
-  <pre>
-{
-    "status": "sucesso",
-    "size": "",
-    "retorno": [
+    <pre>
+        {
+        "status": "sucesso",
+        "size": "",
+        "retorno": [
         {
             "id": "a883824b967de175851469daf870831ea36e8",
             "nome": "SZKBEL LSMK BUENO",
@@ -44,8 +46,37 @@ O resultado da requisição será conforme abaixo:
         {
           ...
         }
-     ],
-    "mensagem": ""
-}
-  </pre>
+        ],
+        "mensagem": ""
+        }
+    </pre>
+</div>
+<strong>EN</strong>
+<div class="alert alert-success" role="alert">
+    <pre>
+        {
+            "firstName": "string",
+            "lastName": "string",
+            "birthDate": "Date",
+            "mother": "string",
+            "nationality": "string",
+            "gender": "string",
+            "maritalStatus": "string",
+            "contacts": {
+                "phone1": "string",
+                "phone2": "string",
+                "phone3": "string",
+                "email": "string",
+                "district": "string",
+                "address": "string",
+                "number": "string"
+                "zipCode": "string",
+                "city":"string",
+            },
+            "documents": {
+                "type": "string",
+                "number": "string",
+            }
+        }
+    </pre>
 </div>

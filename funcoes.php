@@ -14,13 +14,17 @@ define('ROTA_FUNCAO_MARCACAO_PERIODO_PARAMETROS', "?data=2019-10-10&tipo_baixa=P
 defined('ROTA_FUNCAO_GET_ESPECIALIDADES')  OR define('ROTA_FUNCAO_GET_ESPECIALIDADES', "especialidades/");
 defined('ROTA_FUNCAO_GET_ESPACO_FISICO')  OR define('ROTA_FUNCAO_GET_ESPACO_FISICO', "espaco_fisico/");
 defined('ROTA_FUNCAO_GET_PACIENTES')  OR define('ROTA_FUNCAO_GET_PACIENTES', "paciente/");
+defined('ROTA_FUNCAO_GET_PATIENT')  OR define('ROTA_FUNCAO_GET_PATIENT', "patient/");
 defined('ROTA_FUNCAO_POST_PACIENTES_FILTRO')  OR define('ROTA_FUNCAO_POST_PACIENTES_FILTRO', "paciente/filtros");
 defined('ROTA_FUNCAO_POST_PACIENTES_CADASTRO')  OR define('ROTA_FUNCAO_POST_PACIENTES_CADASTRO', "pacientes/efetivar_cadastro");
 defined('ROTA_FUNCAO_GET_CONVENIOS')  OR define('ROTA_FUNCAO_GET_CONVENIOS', "tipo_convenio");
 defined('ROTA_FUNCAO_GET_PROFISSIONAIS')  OR define('ROTA_FUNCAO_GET_PROFISSIONAIS', "profissionais");
+defined('ROTA_FUNCAO_GET_PROFISSIONAIS_FILTRO')  OR define('ROTA_FUNCAO_GET_PROFISSIONAIS_FILTRO', "profissionais/filtros");
+defined('ROTA_FUNCAO_GET_PROFESSIONAL_PAGINACAO')  OR define('ROTA_FUNCAO_GET_PROFESSIONAL_PAGINACAO', "professional/?offtset=[NUM]&limit=[NUM]");
 defined('ROTA_FUNCAO_POST_PROFISSIONAIS')  OR define('ROTA_FUNCAO_POST_PROFISSIONAIS', "profissionais/profissionais_com_horarios");
 defined('ROTA_FUNCAO_POST_PROCEDIMENTOS')  OR define('ROTA_FUNCAO_POST_PROCEDIMENTOS', "procedimento/filtros");
 defined('ROTA_FUNCAO_POST_AGENDAMENTOS_CADASTRO')  OR define('ROTA_FUNCAO_POST_AGENDAMENTOS_CADASTRO', "marcacoes/efetivar_cadastro");
+defined('ROTA_FUNCAO_POST_LAUDO_SALVAR')  OR define('ROTA_FUNCAO_POST_LAUDO_SALVAR', "laudo/report");
 
 $PARAMETROS_AUTENTICACAO = array(
 	array("campo" => "matricula", "obrigatorio" => "Sim", "tipo" => "String", "descricao" => "Matricula de acesso cadastradas no sistema biogeneses"),
@@ -54,6 +58,65 @@ $PARAMETROS_PACIENTES = array(
 			"tipo" => "inteiro", 
 			"criptografado" => "Não", 
 			"descricao" => "Os dados deverão ser enviado sem pontuações, obedecendo assim o tipo de dado requerido pelo parametro."
+		),
+	array(
+			"campo" => "paciente_online_id", 
+			"obrigatorio" => "Não", 
+			"tipo" => "inteiro", 
+			"criptografado" => "Não", 
+			"descricao" => "Código referente ao paciente no sistema externo."
+		),
+	array(
+			"campo" => "offset", 
+			"obrigatorio" => "Não", 
+			"tipo" => "inteiro", 
+			"criptografado" => "Não", 
+			"descricao" => ""
+		),
+	array(
+			"campo" => "limit", 
+			"obrigatorio" => "Não", 
+			"tipo" => "inteiro", 
+			"criptografado" => "Não", 
+			"descricao" => "Limite de dados a ser recuperado na requisição."
+		)
+);
+
+$PARAMETROS_PROFISSIONAIS = array(
+	array(
+			"campo" => "profissional_id", 
+			"obrigatorio" => "Não", 
+			"tipo" => "String", 
+			"criptografado" => "Sim", 
+			"descricao" => "Código único do profissional no sistema biogeneses."
+		),
+	array(
+			"campo" => "sigla_conselho", 
+			"obrigatorio" => "Não", 
+			"tipo" => "String", 
+			"criptografado" => "Não", 
+			"descricao" => "Refere-se aos diferentes tipos de conselhos conforme cadastro no sistema.<br><small><b>dados aceitos:</b> <code>CRAS, COREN, CRF, CRFA, CREFITO, CRN, CRO, CRP, OUT, CRM</code></small></br>"
+		),
+	array(
+			"campo" => "num_conselho", 
+			"obrigatorio" => "Não", 
+			"tipo" => "inteiro", 
+			"criptografado" => "Não", 
+			"descricao" => "Número do registro médico conforme o conselho."
+		),
+	array(
+			"campo" => "offset", 
+			"obrigatorio" => "Não", 
+			"tipo" => "inteiro", 
+			"criptografado" => "Não", 
+			"descricao" => ""
+		),
+	array(
+			"campo" => "limit", 
+			"obrigatorio" => "Não", 
+			"tipo" => "inteiro", 
+			"criptografado" => "Não", 
+			"descricao" => "Limite de dados a ser recuperado na requisição."
 		)
 );
 
@@ -88,6 +151,23 @@ $PARAMETROS_PROFISSIONAIS_HORARIOS = array(
 		)
 );
 
+$PARAMETROS_PROFISSIONAIS_PAGINACAO = array(
+	array(
+			"campo" => "offtset", 
+			"obrigatorio" => "Não", 
+			"tipo" => "inteiro", 
+			"criptografado" => "Não", 
+			"descricao" => "O argumento OFFSET é usado para identificar o ponto de partida para retornar linhas de um conjunto de resultados. Basicamente, ele exclui o primeiro conjunto de registros."
+		),
+	array(
+			"campo" => "limit", 
+			"obrigatorio" => "Não", 
+			"tipo" => "inteiro", 
+			"criptografado" => "Não", 
+			"descricao" => "A cláusula LIMIT é usada para definir um limite superior no número de tuplas retornadas pelo SQL."
+		)
+);
+
 $PARAMETROS_PROCEDIMENTOS = array(
 	array(
 			"campo" => "tipo_convenio_id", 
@@ -105,6 +185,37 @@ $PARAMETROS_PROCEDIMENTOS = array(
 		)
 );
 
+$PARAMETROS_LAUDOS = array(
+	array(
+			"campo" => "marcacao_id", 
+			"obrigatorio" => "Sim", 
+			"tipo" => "String", 
+			"criptografado" => "Sim", 
+			"descricao" => "Código de movimentação gerado quando gravada uma marcação."
+		),
+	array(
+			"campo" => "procedimentos_atendimento_id", 
+			"obrigatorio" => "Sim", 
+			"tipo" => "String", 
+			"criptografado" => "Sim", 
+			"descricao" => "Código de controle do procedimento vinculado ao atendimento"
+		),
+	array(
+			"campo" => "report_link", 
+			"obrigatorio" => "Sim", 
+			"tipo" => "String", 
+			"criptografado" => "Não", 
+			"descricao" => "Link / caminho do laudo (somente o texto do laudo já formatado em pdf)"
+		),
+	array(
+			"campo" => "report_link_images", 
+			"obrigatorio" => "Sim", 
+			"tipo" => "String", 
+			"criptografado" => "Não", 
+			"descricao" => "Link / caminho do laudo com imagens (somentes as imagens do laudo já formatado em pdf)"
+		)
+);
+
 $PARAMETROS_CADASTRO_PACIENTE = array(
 	array("campo" => "nome", "obrigatorio" => "Sim", "tipo" => "String", "criptografado" => "Não", "descricao" => "Nome do paciente informado no cadastro"),
 	array("campo" => "nome_mae", "obrigatorio" => "Não", "tipo" => "String", "criptografado" => "Não", "descricao" => "Nome mãe informado no cadastro"),
@@ -119,7 +230,7 @@ $PARAMETROS_CADASTRO_PACIENTE = array(
 );
 
 $PARAMETROS_CADASTRO_AGENDAMENTO = array(
-		array("campo" => "usuario_id", "obrigatorio" => "Sim", "tipo" => "String", "criptografado" => "Sim", "descricao" => "Usuário que é obtido a partir do endpoint de Usuário"),
+	array("campo" => "usuario_id", "obrigatorio" => "Sim", "tipo" => "String", "criptografado" => "Sim", "descricao" => "Usuário que é obtido a partir do endpoint de Usuário"),
 	array("campo" => "espaco_fisico_id", "obrigatorio" => "Sim", "tipo" => "String", "criptografado" => "Sim", "descricao" => "Espaço físico que é obtido a partir do endpoint de Espaço físico"),
 	array("campo" => "paciente_id", "obrigatorio" => "Sim", "tipo" => "String", "criptografado" => "Sim", "descricao" => "Paciente que é obtido a partir do endpoint de Paciente"),
 	array("campo" => "profissional_id", "obrigatorio" => "Sim", "tipo" => "String", "criptografado" => "Sim", "descricao" => "Profissional que é obtido a partir do endpoint de Profissional"),
