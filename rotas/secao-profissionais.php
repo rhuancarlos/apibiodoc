@@ -7,8 +7,8 @@
 			<?PHP require_once('endpoint_profissionais_geral.php');?>
 		</div>
 	</div>	
-	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseEnd3">Por Parametros</button>
-	<div class="collapse" id="collapseEnd3">
+	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseEnd2">Por Parametros</button>
+	<div class="collapse" id="collapseEnd2">
 		<div class="card card-body">
 			<?PHP require_once('endpoint_profissionais_por_parametros.php');?>
 		</div>
@@ -19,8 +19,8 @@
 			<?PHP require_once('endpoint_profissionais_paginacao.php');?>
 		</div>
 	</div>
-	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseEnd2">Com Horários</button>
-	<div class="collapse" id="collapseEnd2">
+	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseEnd4">Com Horários</button>
+	<div class="collapse" id="collapseEnd4">
 		<div class="card card-body">
 			<?PHP require_once('endpoint_profissionais_com_horarios.php');?>
 		</div>
