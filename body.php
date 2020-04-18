@@ -154,7 +154,7 @@
       </h2>
     </div>
 
-    <div id="heading10" class="collapse show" aria-labelledby="heading9" data-parent="#accordionExample">
+    <div id="collapse10" class="collapse" aria-labelledby="heading10" data-parent="#accordionExample">
       <div class="card-body">
         <?php include_once('rotas/secao-laudos.php');?>
       </div>

@@ -24,7 +24,7 @@ defined('ROTA_FUNCAO_GET_PROFESSIONAL_PAGINACAO')  OR define('ROTA_FUNCAO_GET_PR
 defined('ROTA_FUNCAO_POST_PROFISSIONAIS')  OR define('ROTA_FUNCAO_POST_PROFISSIONAIS', "profissionais/profissionais_com_horarios");
 defined('ROTA_FUNCAO_POST_PROCEDIMENTOS')  OR define('ROTA_FUNCAO_POST_PROCEDIMENTOS', "procedimento/filtros");
 defined('ROTA_FUNCAO_POST_AGENDAMENTOS_CADASTRO')  OR define('ROTA_FUNCAO_POST_AGENDAMENTOS_CADASTRO', "marcacoes/efetivar_cadastro");
-defined('ROTA_FUNCAO_POST_LAUDO_SALVAR')  OR define('ROTA_FUNCAO_POST_LAUDO_SALVAR', "laudo/report");
+defined('ROTA_FUNCAO_POST_LAUDO_SALVAR')  OR define('ROTA_FUNCAO_POST_LAUDO_SALVAR', "report");
 
 $PARAMETROS_AUTENTICACAO = array(
 	array("campo" => "matricula", "obrigatorio" => "Sim", "tipo" => "String", "descricao" => "Matricula de acesso cadastradas no sistema biogeneses"),
@@ -34,6 +34,7 @@ $PARAMETROS_MARCACAO_PERIODO = array(
 	array("campo" => "data", "obrigatorio" => "Sim", "tipo" => "String", "criptografado" => "Não", "descricao" => "Data que deseja requisitar os atendimentos."),
 	array("campo" => "tipo_baixa", "obrigatorio" => "Não", "tipo" => "String", "criptografado" => "Não", "descricao" => "Refere-se a situação do atendimento.<br><small><b>dados aceitos:</b> <code>PRESENTE, FALTOU, DESMARCADO, ATENDIDO, REMARCADO</code></small></br>"),
 	array("campo" => "tipo_atendimento", "obrigatorio" => "Não", "tipo" => "String", "criptografado" => "Não", "descricao" => "Refere-se ao tipo do atendimento, se este é consulta, exames etc.<br><small><b>dados aceitos:</b> <code>CIRURGIA, CONSULTA, EXAME, NÃO INFORMADO, RETORNO</code></small></br>"),
+	array("campo" => "tipoatendimento_sigla", "obrigatorio" => "Não", "tipo" => "String", "criptografado" => "Não", "descricao" => "Refere-se ao sigla do atendimento, esta informação é considerada uma constante. Desta forma pode-se utiliza-la como ponto de referencia nas consulta de dados.<br><small><b>dados aceitos:</b> <code>CIRURGIA = CIR, CONSULTA = CON, EXAME = EXA, NÃO INFORMADO = NIN, RETORNO = RTN</code></small></br>"),
 	array("campo" => "profissional_id", "obrigatorio" => "Não", "tipo" => "String", "criptografado" => "Sim", "descricao" => "Código do médico profissional que foi informado no ato da abertura do atendimento."),
 );
 
