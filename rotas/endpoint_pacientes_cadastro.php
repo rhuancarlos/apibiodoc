@@ -1,3 +1,4 @@
+<h4>Cadastro</h4>
 <br>
 Esta requisição deverá ser feita na seguinte rota</i></small></p>
 <h5><i><span class="badge badge-warning">POST</span></i></h5>
@@ -66,4 +67,9 @@ O resultado da requisição será conforme abaixo:
     "mensagem": ""
 }
   </pre>
+</div>
+<h4>Atualização</h4>
+<br>
+<div class="alert alert-warning">
+  Para este tipo de ação deve-se seguir o mesmo padrão de parametros no processo de cadastro. porém, deve-se <strong>informar o parametor "id" com o valor criptografado. Com o envio do parametro "ID" à api deverá realizar a atualização dos dados conforme sejam informados em parametros.</strong>
 </div>

@@ -18,7 +18,7 @@
 		</div>
 	</div>
 
-	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseEnd3">Cadastro</button>
+	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseEnd3">Cadastro / Atualização</button>
 	<div class="collapse" id="collapseEnd3">
 		<div class="card card-body">
 			<?PHP require_once('endpoint_pacientes_cadastro.php');?>
