@@ -23,6 +23,7 @@ defined('ROTA_FUNCAO_GET_PROFISSIONAIS_FILTRO')  OR define('ROTA_FUNCAO_GET_PROF
 defined('ROTA_FUNCAO_GET_PROFESSIONAL_PAGINACAO')  OR define('ROTA_FUNCAO_GET_PROFESSIONAL_PAGINACAO', "professional/?offtset=[NUM]&limit=[NUM]");
 defined('ROTA_FUNCAO_POST_PROFISSIONAIS')  OR define('ROTA_FUNCAO_POST_PROFISSIONAIS', "profissionais/profissionais_com_horarios");
 defined('ROTA_FUNCAO_POST_PROCEDIMENTOS')  OR define('ROTA_FUNCAO_POST_PROCEDIMENTOS', "procedimento/filtros");
+defined('ROTA_FUNCAO_GET_PROCEDIMENTOS')  OR define('ROTA_FUNCAO_GET_PROCEDIMENTOS', "procedimento");
 defined('ROTA_FUNCAO_POST_AGENDAMENTOS_CADASTRO')  OR define('ROTA_FUNCAO_POST_AGENDAMENTOS_CADASTRO', "marcacoes/efetivar_cadastro");
 defined('ROTA_FUNCAO_POST_LAUDO_SALVAR')  OR define('ROTA_FUNCAO_POST_LAUDO_SALVAR', "report");
 
@@ -172,20 +173,35 @@ $PARAMETROS_PROFISSIONAIS_PAGINACAO = array(
 $PARAMETROS_PROCEDIMENTOS = array(
 	array(
 			"campo" => "tipo_convenio_id", 
-			"obrigatorio" => "Sim", 
+			"obrigatorio" => "Não", 
 			"tipo" => "String", 
 			"criptografado" => "Sim", 
 			"descricao" => "Código do convênio que é obtido no endpoint de convênios."
 		),
 	array(
 			"campo" => "profissional_id", 
-			"obrigatorio" => "Sim", 
+			"obrigatorio" => "Não", 
 			"tipo" => "String", 
 			"criptografado" => "Sim", 
 			"descricao" => "Código do profissional que é obtido apartir do endpoint de profissionais"
+		),
+	array(
+			"campo" => "codigo_tuss", 
+			"obrigatorio" => "Não", 
+			"tipo" => "String", 
+			"criptografado" => "Não", 
+			"descricao" => "Código tuss do procedimento"
 		)
 );
-
+$ROTA_FUNCAO_GET_PROCEDIMENTOS = array(
+	array(
+			"campo" => "procedimento_id", 
+			"obrigatorio" => "Não", 
+			"tipo" => "String", 
+			"criptografado" => "Sim", 
+			"descricao" => "Código do procedimento que é obtido no endpoint de via POST ou realizando uma única chamada neste mesmo endpoint."
+		)
+);
 $PARAMETROS_LAUDOS = array(
 	array(
 			"campo" => "marcacao_id", 

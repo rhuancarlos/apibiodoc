@@ -51,28 +51,35 @@ A requisição ficará da seguinte forma:
 O resultado da requisição será conforme abaixo:
 <div class="alert alert-success" role="alert">
   <pre>
-{
-    "status": "sucesso",
-    "retorno": [
-        {
-            "atendimento_id": "234234234234h23423h4j23432423j42343j24",
-            "marcacao_id": "384756767fd767676776f77776767676767f67",
-            "profissional_id": "787787f77f77777788889889f9889898898899",
-            "paciente_id": "f675565656765765675675d675765675765675",
-            "tipo_baixa": "PRESENTE",
-            "tipo_atendimento": "CONSULTA",
-            "profissional_nome": "CONSECTETUR ADIPISCING ELIT",
-            "nome_paciente": "EIUSMOD TEMPOR",
-            "procedimentos": [
-                {
-                    "descricao": "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT",
-                    "procedimento_id": "3389488a51621f68eee0a98a685db37d17"
-                }
-            ]
-        },
-        ...
-    ],
-    "mensagem": ""
-}
+    {
+      "status": "sucesso",
+      "retorno": [
+          {
+              "atendimento_id": "234234234234h23423h4j23432423j42343j24",
+              "marcacao_id": "384756767fd767676776f77776767676767f67",
+              "profissional_id": "787787f77f77777788889889f9889898898899",
+              "paciente_id": "f675565656765765675675d675765675765675",
+              "tipo_baixa": "PRESENTE",
+              "tipo_atendimento_id": "7f77f77777788889889f9887f77f777777888898",
+              "tipo_atendimento": "EXAME",
+              "profissional_nome": "CONSECTETUR ADIPISCING ELIT",
+              "nome_paciente": "EIUSMOD TEMPOR",
+              "procedimentos": [
+                  {
+                      "procedimentos_atendimento_id": "0985b78e8465223f73a8a13dee986d76834a4611",
+                      "procedimento_id": "3389488a51621f68eee0a98@@#!85db37d17",
+                      "descricao": "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT"
+                  }
+              ],
+              "convenio": {
+                  "id": "db131343713d82189f6ae629e8780e5aa7d6",
+                  "nome": "SAÚDE PRA VOCÊ"
+              },
+              "profissional_solicitante": []
+          },
+          ...
+      ],
+      "mensagem": ""
+    }
   </pre>
 </div>
