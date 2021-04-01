@@ -3,7 +3,7 @@
 Esta requisição deverá ser feita na seguinte rota</i></small></p>
 <h5><i><span class="badge badge-warning">POST</span></i></h5>
 <div class="alert alert-info" role="alert">
-  <?= ROTA_PROTOCOLO.ROTA_DOMINIO.'<strong><span class="badge badge-dark">'.ROTA_FUNCAO_POST_PACIENTES_CADASTRO.'</span></strong>'; ?>
+  <?= ROTA_PROTOCOLO.ROTA_DOMINIO.'<strong><span class="badge badge-dark">'.ROTA_FUNCAO_CONVENIOS_CADASTRO.'</span></strong>'; ?>
 </div>
 
   <h5><strong>Parâmetros</strong></h5>
@@ -19,13 +19,13 @@ Esta requisição deverá ser feita na seguinte rota</i></small></p>
     </thead>
     <tbody>
       <?PHP 
-      foreach($PARAMETROS_CADASTRO_PACIENTE as $pacienteCadastro) {
+      foreach($PARAMETROS_CONVENIO_PACIENTE as $convenioCadastro) {
         $html = "<tr>";
-        $html .= "<td>".$pacienteCadastro['campo']."</td>";
-        $html .= "<td>".$pacienteCadastro['obrigatorio']."</td>";
-        $html .= "<td>".$pacienteCadastro['tipo']."</td>";
-        $html .= "<td>".$pacienteCadastro['criptografado']."</td>";
-        $html .= "<td>".$pacienteCadastro['descricao']."</td>";
+        $html .= "<td>".$convenioCadastro['campo']."</td>";
+        $html .= "<td>".$convenioCadastro['obrigatorio']."</td>";
+        $html .= "<td>".$convenioCadastro['tipo']."</td>";
+        $html .= "<td>".$convenioCadastro['criptografado']."</td>";
+        $html .= "<td>".$convenioCadastro['descricao']."</td>";
         $html .= "</tr>";
         echo $html;
       }

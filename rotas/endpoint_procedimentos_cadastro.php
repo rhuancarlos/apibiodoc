@@ -3,7 +3,7 @@
 Esta requisição deverá ser feita na seguinte rota</i></small></p>
 <h5><i><span class="badge badge-warning">POST</span></i></h5>
 <div class="alert alert-info" role="alert">
-  <?= ROTA_PROTOCOLO.ROTA_DOMINIO.'<strong><span class="badge badge-dark">'.ROTA_FUNCAO_POST_PACIENTES_CADASTRO.'</span></strong>'; ?>
+  <?= ROTA_PROTOCOLO.ROTA_DOMINIO.'<strong><span class="badge badge-dark">'.ROTA_FUNCAO_PROCEDIMENTO_CADASTRO.'</span></strong>'; ?>
 </div>
 
   <h5><strong>Parâmetros</strong></h5>
@@ -19,13 +19,13 @@ Esta requisição deverá ser feita na seguinte rota</i></small></p>
     </thead>
     <tbody>
       <?PHP 
-      foreach($PARAMETROS_CADASTRO_PACIENTE as $pacienteCadastro) {
+      foreach($PARAMETROS_CADASTRO_PROCEDIMENTO as $procedimentoCadastro) {
         $html = "<tr>";
-        $html .= "<td>".$pacienteCadastro['campo']."</td>";
-        $html .= "<td>".$pacienteCadastro['obrigatorio']."</td>";
-        $html .= "<td>".$pacienteCadastro['tipo']."</td>";
-        $html .= "<td>".$pacienteCadastro['criptografado']."</td>";
-        $html .= "<td>".$pacienteCadastro['descricao']."</td>";
+        $html .= "<td>".$procedimentoCadastro['campo']."</td>";
+        $html .= "<td>".$procedimentoCadastro['obrigatorio']."</td>";
+        $html .= "<td>".$procedimentoCadastro['tipo']."</td>";
+        $html .= "<td>".$procedimentoCadastro['criptografado']."</td>";
+        $html .= "<td>".$procedimentoCadastro['descricao']."</td>";
         $html .= "</tr>";
         echo $html;
       }
@@ -47,31 +47,19 @@ O resultado da requisição será conforme abaixo:
 <div class="alert alert-success" role="alert">
   <pre>
     {
-      "status": "sucesso",
-      "retorno": [
-        {
-          "id": "00000000000000000000000000000000000000",
-          "nome": "PAC INTEGRAÇÃO 30032021",
-          "data_nascimento": "2000-01-01",
-          "nome_mae": "MÃE PACINTEGRAÇÃO 30032021",
-          "sexo": null,
-          "telefone1": "8699999955",
-          "telefone2": "8699999955",
-          "telefone3": "8699999955",
-          "email": null,
-          "bairro": null,
-          "endereco": null,
-          "numero": null,
-          "cep": null,
-          "cidade_descricao": null,
-          "rg": null,
-          "cpf": null,
-          "created": "2021-03-30 10:10:44",
-          "integracao_paciente_id": "115",
-          "integracaosoftware_key": "000000000000000000000000000000-00000000"
-        }
-      ],
-      "mensagem": "MENSAGEM RETORNO"
+        "status": "sucesso",
+        "retorno": [
+            {
+                "id": "da4141896a500d6533f81e27ae3b187e6988",
+                "descricao": "TESTE",
+                "codigo": "123456789",
+                "valor": 0,
+                "valor_parceiro": 0,
+                "integracao_procedimento_id": "2342",
+                "integracaosoftware_key": "0000000000000000000000000000000-000000000"
+            }
+        ],
+        "mensagem": "Registro salvo com sucesso"
     }
   </pre>
 </div>

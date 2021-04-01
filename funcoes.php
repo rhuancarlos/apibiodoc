@@ -18,6 +18,8 @@ defined('ROTA_FUNCAO_GET_PATIENT')  OR define('ROTA_FUNCAO_GET_PATIENT', "patien
 defined('ROTA_FUNCAO_POST_PACIENTES_FILTRO')  OR define('ROTA_FUNCAO_POST_PACIENTES_FILTRO', "paciente/filtros");
 defined('ROTA_FUNCAO_POST_PACIENTES_CADASTRO')  OR define('ROTA_FUNCAO_POST_PACIENTES_CADASTRO', "pacientes/efetivar_cadastro");
 defined('ROTA_FUNCAO_GET_CONVENIOS')  OR define('ROTA_FUNCAO_GET_CONVENIOS', "tipo_convenio");
+defined('ROTA_FUNCAO_CONVENIOS_CADASTRO')  OR define('ROTA_FUNCAO_CONVENIOS_CADASTRO', "tipo_convenio/efetivar_cadastro");
+defined('ROTA_FUNCAO_PROCEDIMENTO_CADASTRO')  OR define('ROTA_FUNCAO_PROCEDIMENTO_CADASTRO', "procedimento/efetivar_cadastro");
 defined('ROTA_FUNCAO_GET_PROFISSIONAIS')  OR define('ROTA_FUNCAO_GET_PROFISSIONAIS', "profissionais");
 defined('ROTA_FUNCAO_GET_PROFISSIONAIS_FILTRO')  OR define('ROTA_FUNCAO_GET_PROFISSIONAIS_FILTRO', "profissionais/filtros");
 defined('ROTA_FUNCAO_GET_PROFESSIONAL_PAGINACAO')  OR define('ROTA_FUNCAO_GET_PROFESSIONAL_PAGINACAO', "professional/?offtset=[NUM]&limit=[NUM]");
@@ -62,11 +64,42 @@ $PARAMETROS_PACIENTES = array(
 			"descricao" => "Os dados deverão ser enviado sem pontuações, obedecendo assim o tipo de dado requerido pelo parametro."
 		),
 	array(
-			"campo" => "paciente_online_id", 
+			"campo" => "integracaosoftware_key", 
+			"obrigatorio" => "Sim", 
+			"tipo" => "String", 
+			"criptografado" => "Sim", 
+			"descricao" => "Hash gerado pela clínica e autorização de integração."
+		),
+	array(
+			"campo" => "offset", 
 			"obrigatorio" => "Não", 
 			"tipo" => "inteiro", 
 			"criptografado" => "Não", 
-			"descricao" => "Código referente ao paciente no sistema externo."
+			"descricao" => ""
+		),
+	array(
+			"campo" => "limit", 
+			"obrigatorio" => "Não", 
+			"tipo" => "inteiro", 
+			"criptografado" => "Não", 
+			"descricao" => "Limite de dados a ser recuperado na requisição."
+		)
+);
+
+$PARAMETROS_CONVENIOS = array(
+	array(
+			"campo" => "tipo_convenio_id", 
+			"obrigatorio" => "Não", 
+			"tipo" => "String", 
+			"criptografado" => "Não", 
+			"descricao" => "Neste paramentro poderá ser enviado o id do convênio no sistema da clínica."
+		),
+	array(
+			"campo" => "integracaosoftware_key", 
+			"obrigatorio" => "Sim", 
+			"tipo" => "String", 
+			"criptografado" => "Sim", 
+			"descricao" => "Hash gerado pela clínica e autorização de integração."
 		),
 	array(
 			"campo" => "offset", 
@@ -191,7 +224,14 @@ $PARAMETROS_PROCEDIMENTOS = array(
 			"tipo" => "String", 
 			"criptografado" => "Não", 
 			"descricao" => "Código tuss do procedimento"
-		)
+		),
+	array(
+			"campo" => "integracaosoftware_key", 
+			"obrigatorio" => "Sim", 
+			"tipo" => "String", 
+			"criptografado" => "Sim", 
+			"descricao" => "Hash gerado pela clínica e autorização de integração."
+		),
 );
 $ROTA_FUNCAO_GET_PROCEDIMENTOS = array(
 	array(
@@ -240,10 +280,27 @@ $PARAMETROS_CADASTRO_PACIENTE = array(
 	array("campo" => "telefone2", "obrigatorio" => "Não", "tipo" => "String", "criptografado" => "Não", "descricao" => "Segundo telefone informado no cadastro"),
 	array("campo" => "telefone3", "obrigatorio" => "Não", "tipo" => "String", "criptografado" => "Não", "descricao" => "Terceiro telefone informado no cadastro"),
 	array("campo" => "data_nascimento", "obrigatorio" => "Não", "tipo" => "String", "criptografado" => "Não", "descricao" => "Data de nascimento informado no cadastro"),
-	array("campo" => "paciente_online_id", "obrigatorio" => "Sim", "tipo" => "inteiro", "criptografado" => "Não", "descricao" => "Código do paciente online gerado pelo sistema que está usando a api"),
+	array("campo" => "integracao_paciente_id", "obrigatorio" => "Sim", "tipo" => "inteiro", "criptografado" => "Não", "descricao" => "Código único do paciente gerado pelo sistema do software autorizado a integração."),
+	array("campo" => "integracaosoftware_key", "obrigatorio" => "Sim", "tipo" => "String", "criptografado" => "Sim", "descricao" => "Hash gerado pela clínica e autorização de integração."),
 	array("campo" => "convenio", "obrigatorio" => "Sim", "tipo" => "Convenio", "criptografado" => "Não", "descricao" => "Convênio do paciente"),
 	array("campo" => "tipo_convenio_id", "obrigatorio" => "Sim", "tipo" => "String", "criptografado" => "Sim", "descricao" => "Tipo de convênio que é obtido apartir do endpoint de Convênio"),
 	array("campo" => "num_carteira", "obrigatorio" => "Não", "tipo" => "String", "criptografado" => "Não", "descricao" => "Número da carteira informado no cadastro")
+);
+
+$PARAMETROS_CADASTRO_PROCEDIMENTO = array(
+	array("campo" => "descricao", "obrigatorio" => "Sim", "tipo" => "String", "criptografado" => "Não", "descricao" => "Descricao do procedimento informado no cadastro"),
+	array("campo" => "tipo_atendimento", "obrigatorio" => "Sim", "tipo" => "String", "criptografado" => "Não", "descricao" => "Tipo que define o procedimento com base no tipo de atendimento a ser utilizado"),
+	array("campo" => "codigo_tuss", "obrigatorio" => "Não", "tipo" => "String", "criptografado" => "Não", "descricao" => "Código tuss do procedimento"),
+	array("campo" => "integracao_procedimento_id", "obrigatorio" => "Sim", "tipo" => "inteiro", "criptografado" => "Não", "descricao" => "Código único do procedimento gerado pelo sistema do software autorizado a integração."),
+	array("campo" => "integracaosoftware_key", "obrigatorio" => "Sim", "tipo" => "String", "criptografado" => "Sim", "descricao" => "Hash gerado pela clínica e autorização de integração."),
+);
+
+$PARAMETROS_CONVENIO_PACIENTE = array(
+	array("campo" => "descricao", "obrigatorio" => "Sim", "tipo" => "String", "criptografado" => "Não", "descricao" => "Descrição do convênio."),
+	array("campo" => "registro_ans", "obrigatorio" => "Sim", "tipo" => "String", "criptografado" => "Não", "descricao" => "Código referente ao registro do convênio na ANS."),
+	array("campo" => "url_autorizacao", "obrigatorio" => "Sim", "tipo" => "String", "criptografado" => "Não", "descricao" => "link de acesso a portal ou meio de autorização de atendimento no convênio."),
+	array("campo" => "integracao_tipo_convenio_id", "obrigatorio" => "Sim", "tipo" => "inteiro", "criptografado" => "Não", "descricao" => "Código único do convênio gerado pelo sistema autorizado a integração."),
+	array("campo" => "integracaosoftware_key", "obrigatorio" => "Sim", "tipo" => "String", "criptografado" => "Sim", "descricao" => "Hash gerado pela clínica e autorização de integração.")
 );
 
 $PARAMETROS_CADASTRO_AGENDAMENTO = array(
